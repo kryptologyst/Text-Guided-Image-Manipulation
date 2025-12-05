@@ -1,0 +1,52 @@
+# Default configuration for text-guided image manipulation
+
+# Model settings
+model:
+  name: "runwayml/stable-diffusion-v1-5"
+  clip_model_name: "openai/clip-vit-base-patch32"
+  device: "auto"  # auto, cpu, cuda, mps
+
+# Generation settings
+generation:
+  num_inference_steps: 50
+  guidance_scale: 7.5
+  strength: 0.8
+  batch_size: 1
+
+# Image settings
+image:
+  size: 512
+  format: "png"
+  quality: 95
+
+# Training settings (if applicable)
+training:
+  learning_rate: 1e-4
+  batch_size: 4
+  num_epochs: 100
+  save_interval: 10
+  eval_interval: 5
+
+# Data settings
+data:
+  dataset_path: "data/sample_dataset"
+  train_split: 0.7
+  val_split: 0.2
+  test_split: 0.1
+  num_workers: 4
+
+# Evaluation settings
+evaluation:
+  metrics: ["clip_score", "lpips_distance", "fid_score"]
+  save_samples: true
+  num_eval_samples: 100
+
+# Logging settings
+logging:
+  level: "INFO"
+  log_dir: "logs"
+  wandb_project: "text-guided-manipulation"
+  tensorboard: true
+
+# Random seed
+seed: 42
